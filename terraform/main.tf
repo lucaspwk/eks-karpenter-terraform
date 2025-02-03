@@ -115,7 +115,7 @@ resource "helm_release" "karpenter" {
 
 resource "kubectl_manifest" "karpenter_node_class_graviton" {
   yaml_body = <<-YAML
-    apiVersion: karpenter.k8s.aws/v1beta1
+    apiVersion: karpenter.k8s.aws/v1
     kind: EC2NodeClass
     metadata:
       name: graviton
@@ -176,7 +176,7 @@ resource "kubectl_manifest" "karpenter_node_pool_graviton" {
 
 resource "kubectl_manifest" "karpenter_node_class_default" {
   yaml_body = <<-YAML
-    apiVersion: karpenter.k8s.aws/v1beta1
+    apiVersion: karpenter.k8s.aws/v1
     kind: EC2NodeClass
     metadata:
       name: default
@@ -200,7 +200,7 @@ resource "kubectl_manifest" "karpenter_node_class_default" {
 
 resource "kubectl_manifest" "karpenter_node_pool_default" {
   yaml_body = <<-YAML
-    apiVersion: karpenter.sh/v1beta1
+    apiVersion: karpenter.sh/v1
     kind: NodePool
     metadata:
       name: default
